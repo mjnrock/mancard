@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Man Card</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">        
+        
+        <!-- CHANGE TO LOCAL FILES UPON DISTRIBUTION -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <section id="welcome" data-role="page">
+            <div>
+                Welcome
+            </div>
+        </section>
+        <section id="home" data-role="page">
+            <div>
+                Home
+            </div>
+            <a href="#" id="ajaxbtn">AJAX Call</a>
+            <div id="ajaxdata">
+
+            </div>
+        </section>
+        <section id="bets" data-role="page">
+            <div>
+                Bets
+            </div>
+        </section>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#ajaxbtn').on("click", function(event) {
+                    event.preventDefault();
+                    console.log("clicked");
+                    $.ajax({
+                        type: "POST",
+                        url: "http://www.mattnawrocki.com/mancard/ajax/db.php",
+                        data: {
+                            "user" : "username"
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            $('#ajaxdata').text(data);
+                        }
+                    });
+                });
+                
+                
+                $('section').on("swipeleft", function(){
+                    var nextpage = $(this).next('section[data-role="page"]');
+                    //console.log($(this).next('section[data-role="page"]'));
+                    if (nextpage.length > 0) {
+                        $.mobile.changePage(nextpage, 'slide');
+                    }
+                });
+                $('section').on("swiperight", function(){
+                    var prevpage = $(this).prev('section[data-role="page"]');
+                    //console.log($(this).prev('section[data-role="page"]'));
+                    if (prevpage.length > 0) {
+                        $.mobile.changePage(prevpage, 'slide');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
