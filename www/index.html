@@ -8,12 +8,20 @@ and open the template in the editor.
     <head>
         <title>Man Card</title>
         <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">        
         
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="css/jquery.mobile.css" type="text/css" />
         <link rel="stylesheet" href="css/main.css" type="text/css" />
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.mobile.min.js"></script>
+        <!-- The script below this disables jQuery Mobile styling for items that have data-enhance="false" on them (Just the styling, not function). Must be initialized before jquery.mobile.min.js -->
+        <script type="text/javascript">
+        $(document).one("mobileinit", function () {
+            $.mobile.ignoreContentEnabled=true;
+        });
+        </script>
     </head>
     <body>
         <section id="welcome"  data-role="page">
@@ -41,10 +49,159 @@ and open the template in the editor.
         </section>
         
         <section id="group"  data-role="page">
+            <div class="topBar"></div>
+            <div class="slug">GROUP</div>
+            <div class="username">Veiled Threads</div>
+            <div class="inches_container">
+                <div class="inches">
+                    <span class="number">13<span class="quotemark">&quot;</span></span>
+                </div>
+            </div>
+            <div class="groupmembers">
+                <ul>
+                    <li>
+                        <span class="name">nduforious</span>
+                        <span class="number">127"</span>
+                    </li>
+                    <li>
+                        <span class="name">admbroseidon</span>
+                        <span class="number">18"</span>
+                    </li>
+                    <li>
+                        <span class="name">ahainen</span>
+                        <span class="number">6"</span>
+                    </li>
+                    <li>
+                        <span class="name">mrstretch</span>
+                        <span class="number">1"</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="currentbets">
+                <h2>Current Bets</h2>
+                <ul>
+                    <li>Current Bet 1</li>
+                    <li>Current Bet 2</li>
+                </ul>
+            </div>
+            <div class="completedbets">
+                <h2>Completed Bets</h2>
+                <ul>
+                    <li>Current Bet 1</li>
+                    <li>Current Bet 2</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="placebet"  data-role="page">
+            <div class="topBar"></div>
+            <h2>Place Bet</h2>
+            <ul class="placebet">
+                <li class="custombet break">Custom Bet</li>
+                <li class="randombet break">Random Bet</li>
 
+                <li class="savedbet">assfuck</li>
+                <li class="savedbet break">stupid bet</li>
+
+                <li>Get A Number</li>
+                <li>Pants Someone</li>
+                <li>Pound Some Drinks</li>
+                <li>Get Laid</li>
+                <li>Slap Someone</li>
+                <li>Call Someone</li
+            </ul>
+        </section>
+
+        <section id="placebet_details"  data-role="page">
+            <div class="topBar"></div>
+            <h2>Custom Bet</h2>
+            <div class="placebet_details_form">
+                <form>
+                    <textarea rows="3" class="placebet_description" data-enhance="false">Enter bet description...</textarea>
+
+                    <input type="radio" id="radio1" name="radios" data-enhance="false">
+                    <label class="break" for="radio1">Make New Group</label>
+
+                    <input type="radio" id="radio2" name="radios" data-enhance="false">
+                    <label for="radio2">Veiled Threads</label>
+
+                    <input type="radio" id="radio3" name="radios" data-enhance="false">
+                    <label for="radio3">theA$$fuckers</label>
+
+                    <input type="radio" id="radio4" name="radios" data-enhance="false">
+                    <label for="radio4">Church Friends</label>
+
+                    <input type="submit" value="Place Bet" data-enhance="false">
+                </form>
+            </div>
+        </section>
+
+        <section id="placebet_info"  data-role="page">
+            <div class="topBar"></div>
+            <h2>You have to ...</h2>
+            <p>You have to suck your own nuts and not be a little bitch about it. fagg0ts.</p>
+            <h2>Bet Info</h2>
+            <ul class="betinfo">
+                <li>
+                    <div class="left">Started On</div>
+                    <div class="right">12:47PM Dec 30</div>
+                </li>
+                <li>
+                    <div class="left">Finished On</div>
+                    <div class="right">?</div>
+                </li>
+                <li>
+                    <div class="left">Winner</div>
+                    <div class="right">?</div>
+                </li>
+            </ul>
+
+            <h2>Pick Winner</h2><!-- Options for initiator -->
+            <div class="placebet_details_form">
+                <form>
+
+                    <input type="radio" id="radio1" name="radios" data-enhance="false">
+                    <label for="radio2">ahainen</label>
+
+                    <input type="radio" id="radio3" name="radios" data-enhance="false">
+                    <label for="radio3">ndufourious</label>
+
+                    <input type="radio" id="radio4" name="radios" data-enhance="false">
+                    <label for="radio4">mrstretch</label>
+
+                    <input type="radio" id="radio4" name="radios" data-enhance="false">
+                    <label for="radio4">admbroseidon</label>
+
+                    <input type="submit" value="Choose Winner" data-enhance="false">
+                </form>
+            </div>
+            <a href="#" class="delete">Delete Bet</a>
+        </section>
+
+        <section id="winner"  data-role="page">
+            <div class="topBar"></div>
+            <div class="username">You Win</div>
+            <div class="inches_container">
+                <div class="inches">
+                    <span class="number">&#189;<span class="quotemark">&quot;</span></span>
+                </div>
+            </div>
+            <p class="centered">You gained a half inch by winning the following bet:</p>
+            <p class="p_bg">You have to suck your own nuts and not be a little bitch about it. fagg0ts.</p>
+            <a href="#">Cool Story, Bro</a>
         </section>
         
         <script type="text/javascript">
+            $(function() {
+                $("textarea.placebet_description").focus(function(event) {
+
+                      // Erase text from inside textarea
+                    $(this).text("");
+
+                      // Disable text erase
+                    $(this).unbind(event);
+                });
+            });
             $(document).ready(function() {
                 /*
                 $('#ajaxbtn').on("click", function(event) {
